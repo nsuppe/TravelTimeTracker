@@ -6,20 +6,18 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import com.example.tannerdouglas.traveltimetracker.Timer;
 
-public class screenCreateTimer extends AppCompatActivity {
-    static String TAG = "Create Timer";
+public class screenCollectedData extends AppCompatActivity {
+    static String TAG = "Collected Data";
 
-    Timer testTimer = new Timer();
 
     public void btnClick(){
-        Button btnSave = (Button)(findViewById(R.id.btnSave));
-        btnSave.setOnClickListener(new View.OnClickListener() {
+        Button btnExport = (Button)(findViewById(R.id.btnExport));
+        btnExport.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.i(TAG, "Saving New Button Creation!");
-                //Intent intent = new Intent(screenCreateTimer.this, screenTimerList.class);
+                Log.i(TAG, "Exporting Data!");
+                //Intent intent = new Intent(screenCollectedData.this, screenLanding.class);
                 finish();
                 //startActivity(intent);
             }
@@ -28,7 +26,7 @@ public class screenCreateTimer extends AppCompatActivity {
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.i(TAG, "Canceling New Button Creation!");
+                Log.i(TAG, "Canceling Data Export!");
                 //Intent intent = new Intent(screenCreateTimer.this, screenTimerList.class);
                 finish();
                 //startActivity(intent);
@@ -38,8 +36,8 @@ public class screenCreateTimer extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_screen_create_timer);
-        Log.i(TAG, "Create Timer!");
+        setContentView(R.layout.activity_screen_collected_data);
+        Log.i(TAG, "View Collected Data!");
         btnClick();
     }
 }
