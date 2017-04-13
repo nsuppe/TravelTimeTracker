@@ -68,7 +68,7 @@ import com.example.tannerdouglas.traveltimetracker.data.DatabaseHelper;
 public class screenLanding extends AppCompatActivity {
     static String TAG = "Landing";
     TextView timerTextView;
-    private Button timer1, timer2, timer3, timer4, timer5;
+    private Button timer1, timer2, timer3, timer4, timer5, btnStartAll, btnStopAll;
     private TextView timerTextView1, timerTextView2, timerTextView3, timerTextView4, timerTextView5;
     long startTime1 = 0, startTime2 = 0, startTime3 = 0, startTime4 = 0, startTime5 = 0;
     Timer timer;
@@ -323,5 +323,78 @@ public class screenLanding extends AppCompatActivity {
                 }
             }
         });
+
+        //btnStartAll
+
+        btnStartAll = (Button)(findViewById(R.id.btnStartAll));
+
+        btnStartAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (timer1.getText().equals("start")){
+                    startTime1 = System.currentTimeMillis();
+                    timerHandler1.postDelayed(timerRunnable1, 500);
+                    timer1.setText("stop");
+                }
+                if (timer2.getText().equals("start")){
+                    startTime2 = System.currentTimeMillis();
+                    timerHandler2.postDelayed(timerRunnable2, 500);
+                    timer2.setText("stop");
+                }
+                if (timer3.getText().equals("start")){
+                    startTime3 = System.currentTimeMillis();
+                    timerHandler3.postDelayed(timerRunnable3, 500);
+                    timer3.setText("stop");
+                }
+
+                if (timer4.getText().equals("start")){
+                    startTime4 = System.currentTimeMillis();
+                    timerHandler4.postDelayed(timerRunnable4, 500);
+                    timer4.setText("stop");
+                }
+
+                if (timer5.getText().equals("start")){
+                    startTime5 = System.currentTimeMillis();
+                    timerHandler5.postDelayed(timerRunnable5, 500);
+                    timer5.setText("stop");
+                }
+            }
+        });
+
+
+        //btnStopAll
+
+        btnStopAll = (Button)(findViewById(R.id.btnStopAll));
+
+        btnStopAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (timer1.getText().equals("stop")){
+                    timerHandler1.removeCallbacks(timerRunnable1);
+                    timer1.setText("start");
+                }
+                if (timer2.getText().equals("stop")){
+                    timerHandler2.removeCallbacks(timerRunnable2);
+                    timer2.setText("start");
+                }
+                if (timer3.getText().equals("stop")){
+                    timerHandler3.removeCallbacks(timerRunnable3);
+                    timer3.setText("start");
+                }
+
+                if (timer4.getText().equals("stop")){
+                    timerHandler4.removeCallbacks(timerRunnable4);
+                    timer4.setText("start");
+                }
+
+                if (timer5.getText().equals("stop")){
+                    timerHandler5.removeCallbacks(timerRunnable5);
+                    timer5.setText("start");
+                }
+            }
+        });
+
     }
 }
