@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.database.sqlite.SQLiteDatabase;
+import com.example.tannerdouglas.traveltimetracker.data.DatabaseHelper;
 
 public class screenCollectedData extends AppCompatActivity {
     static String TAG = "Collected Data";
@@ -33,11 +35,24 @@ public class screenCollectedData extends AppCompatActivity {
             }
         });
     }
+
+    public void loadData(){
+
+
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_screen_collected_data);
         Log.i(TAG, "View Collected Data!");
+
+        //create DatabaseHelper object passing the current context
+        DatabaseHelper helper = new DatabaseHelper(this);
+        SQLiteDatabase db = helper.getReadableDatabase();
+
+        loadData();
+
         btnClick();
     }
 }

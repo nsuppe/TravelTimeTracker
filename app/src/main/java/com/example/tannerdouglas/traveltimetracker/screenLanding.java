@@ -9,7 +9,6 @@ import android.widget.Button;
 import android.os.Handler;
 import android.widget.TextView;
 import android.database.sqlite.SQLiteDatabase;
-
 import com.example.tannerdouglas.traveltimetracker.data.DatabaseHelper;
 
 /*class TestTimer extends screenLanding{
@@ -67,11 +66,10 @@ import com.example.tannerdouglas.traveltimetracker.data.DatabaseHelper;
 
 public class screenLanding extends AppCompatActivity {
     static String TAG = "Landing";
-    TextView timerTextView;
     private Button timer1, timer2, timer3, timer4, timer5, btnStartAll, btnStopAll;
     private TextView timerTextView1, timerTextView2, timerTextView3, timerTextView4, timerTextView5;
     long startTime1 = 0, startTime2 = 0, startTime3 = 0, startTime4 = 0, startTime5 = 0;
-    Timer timer;
+    //Timer timer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -217,6 +215,7 @@ public class screenLanding extends AppCompatActivity {
                 Intent Save = new Intent(screenLanding.this, screenCollectedData.class);
                 startActivity(Save);
                 //Todo: pass the timer data of selected timers to the SQLite db
+
             }
         });
 
