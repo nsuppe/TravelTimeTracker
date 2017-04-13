@@ -20,6 +20,24 @@
         android:layout_alignStart="@+id/textView" />
 
     <CheckBox
+        android:id="@+id/checkBox2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/timer2"
+        android:layout_alignBottom="@+id/timer2"
+        android:layout_alignLeft="@+id/checkBox1"
+        android:layout_alignStart="@+id/checkBox1" />
+
+    <CheckBox
+        android:id="@+id/checkBox3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/timer3"
+        android:layout_alignBottom="@+id/timer3"
+        android:layout_alignLeft="@+id/checkBox4"
+        android:layout_alignStart="@+id/checkBox4" />
+
+    <CheckBox
         android:id="@+id/checkBox4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -34,15 +52,6 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/timer5"
         android:layout_alignBottom="@+id/timer5"
-        android:layout_alignLeft="@+id/checkBox4"
-        android:layout_alignStart="@+id/checkBox4" />
-
-    <CheckBox
-        android:id="@+id/checkBox3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/timer3"
-        android:layout_alignBottom="@+id/timer3"
         android:layout_alignLeft="@+id/checkBox4"
         android:layout_alignStart="@+id/checkBox4" />
 
@@ -165,15 +174,6 @@
         android:id="@+id/timer5"
         android:layout_below="@+id/timerTextView5"
         android:layout_centerHorizontal="true" />
-
-    <CheckBox
-        android:id="@+id/checkBox2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/timer2"
-        android:layout_alignBottom="@+id/timer2"
-        android:layout_alignLeft="@+id/checkBox1"
-        android:layout_alignStart="@+id/checkBox1" />
 
     <TextView
         android:id="@+id/textView"

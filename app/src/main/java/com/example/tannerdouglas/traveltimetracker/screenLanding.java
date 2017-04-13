@@ -1,5 +1,6 @@
 package com.example.tannerdouglas.traveltimetracker;
 
+import android.content.ContentValues;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.os.Handler;
 import android.widget.TextView;
 import android.database.sqlite.SQLiteDatabase;
 import com.example.tannerdouglas.traveltimetracker.data.DatabaseHelper;
+import com.example.tannerdouglas.traveltimetracker.data.TimersContract;
 
 /*class TestTimer extends screenLanding{
     String name = "Test";
@@ -212,10 +214,23 @@ public class screenLanding extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.i(TAG, "Saving!");
+
+                //Todo: pass the timer data of selected timers to the SQLite db
+                DatabaseHelper helper = new DatabaseHelper(getBaseContext());
+                SQLiteDatabase db = helper.getWritableDatabase();
+
+                ContentValues values = new ContentValues();
+
+                if(findViewById(R.id.checkBox1).isActivated() && timer1.getText().equals("start") && timerTextView1.getText() != null){
+                    values.put(TimersContract.TimerEntry.COLUMN_TOTAL, (String) (timerTextView1.getText()));
+                    db.insert(TimersContract.TimerEntry.TABLE_NAME, null, values);
+                }
+
+
+                // ---------------------------------------------------------------------
+                // Navigate to Collected Data Screen
                 Intent Save = new Intent(screenLanding.this, screenCollectedData.class);
                 startActivity(Save);
-                //Todo: pass the timer data of selected timers to the SQLite db
-
             }
         });
 
@@ -323,8 +338,7 @@ public class screenLanding extends AppCompatActivity {
             }
         });
 
-        //btnStartAll
-
+        //Start All
         btnStartAll = (Button)(findViewById(R.id.btnStartAll));
 
         btnStartAll.setOnClickListener(new View.OnClickListener() {
@@ -362,8 +376,7 @@ public class screenLanding extends AppCompatActivity {
         });
 
 
-        //btnStopAll
-
+        //Stop All
         btnStopAll = (Button)(findViewById(R.id.btnStopAll));
 
         btnStopAll.setOnClickListener(new View.OnClickListener() {
